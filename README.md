@@ -48,11 +48,11 @@ Next, we will explore the top type of themes among the talks. This was a little 
 The next question on our mind when exploring a guide to the perfect ted talk is when to talk. What are the best days of the week for a talk to go live, what are the most popular months to speak and how long should a talk be. 
 Fig 2.1 shows the mean duration of ted talks and it seems from the figure that the average ted talk is less that 1000 seconds long which is approximately 16 minutes. This is consistent with what we know of Ted Talks in that they are short powerful talks (Ted.com, 2019),
  
-
+![6](https://user-images.githubusercontent.com/50813004/84148641-336ed680-aa57-11ea-883f-0cef8f6d985f.png)
 	Fig 2.1: Average Length of Ted Talks. 
 Fig 2.2 below  shows the most popular day of the week to post a ted talk video. As we can see Tuesday has generated the most views, followed closely by Friday, Wednesday, Thursday and Monday. However, the difference between each day is small and therefore cannot determine whether this is statistically significant. It is also good to note that again this information has been scrapped from the ted talks main website. The videos are posted on their website during the working week. Therefore, we can conclude that the company has a five day working week and therefore publish the content during the work week.
 
- 
+![7](https://user-images.githubusercontent.com/50813004/84148644-336ed680-aa57-11ea-8442-f971812164d4.png) 
 		Fig 2.2: Most Popular Weekdays 
 
 Lastly in this section we will explore the most popular months of the year for Ted Talks.  Fig 2.3 depicts the most popular months of the year for Ted Talks. As we can see January and February are the top months by far. Therefore, we can conclude that the start of the year is popular for Ted Talks. It may have some relationship to the new year and new years resolutions. 
@@ -64,7 +64,7 @@ Lastly in this section we will explore the most popular months of the year for T
 
 
 
-
+![8](https://user-images.githubusercontent.com/50813004/84148645-34076d00-aa57-11ea-9adc-9a76190f2f20.png)
 
 
 
@@ -74,12 +74,12 @@ Lastly in this section we will explore the most popular months of the year for T
 
 The next question to be answered is where to talk? As mentioned earlier the data in the dataset is only available for ted talks up until 2017. We have got a gap in data from the 21st of September 2017 to now March 2019. Therefore, for this section I wanted up-to-date data. I wanted to determine whether the area where a  Ted Talk event is held causes an effect on twitter traffic in that area. In other words, does a Ted Talks event cause people to engage socially with the events speakers and topics of the events in the surrounding vcinity. Therefore, it was decided that for up to date social data I would scrape 10,000 tweets with the hashtags #tedtalks and #tedx. Note ReTweets were stripped from the scraping as I wanted organic data. I did not want most of my tweets being TedTalks themselves retweeting the details of the event in their area. This concluded that the scrapped tweets would be unique as well as be generated mostly from twitter users and not businesses on twitter. To do this a twitter API had to be applied for and setup (Developer.twitter.com, 2019). Note that basic twitter API only allows tweets to be scraped from 7 days previous to scraping.  Therefore, tweets were scraped from the dates 09/03/19 to 16/03/19. After scraping 10,000 tweets no users showed up with latitude and longitude. This is because twitter users have to enable and share their location when sending a tweet. Due to the fact that I now have no data for mapping I had to figure out a work around. So, utilising the tweets I had scraped I used the lookupUsers() function from the “twitterR” package (Brunila, 2019). This function took the 10,000 screen names of the users and returned their actual address from their main twitter profile.  The resultant data frame has the users living location not in fact the location where they tweeted about ted talks. Note we still have no latitude and longitude, we just have a location (See Table 2 for snapshot of data).  
 
-  
+![9](https://user-images.githubusercontent.com/50813004/84148646-34076d00-aa57-11ea-9004-adb2c4e9b8cd.png)  
 	Table 2: Users location Generated
   
 To determine the relationship between the Ted events and social communication I also need data on Ted Talks events during the same time frame as the tweets that were scraped ( from 09/03/19 to 16/03/19). Therefore, I went to TED.com main website and in their events section,  they have a table of past events. I scrapped all the data about past events that match my time frame and transformed it into a data frame (See Table 3).   
 
- 
+![10](https://user-images.githubusercontent.com/50813004/84148648-34a00380-aa57-11ea-8089-379600dc474f.png) 
 		Table 3: Event Data Scraped from Ted.com
 
 
@@ -88,15 +88,22 @@ Now I have two new data frames:
 1.	Contains the locations of the twitter users who were tweeting about ted talks during the 09/03/19 to 16/03/19. 
 2.	Contains the locations of ted events from the 09/03/19 to 16/03/19 
 However, I still need the latitude and longitude to map theses data frames. So, I used the mutate_geocode() function from “ggmap” package to return the latitude and longitude for each location in each data frame. Note that “ggmap” requires a google API and this also had to be applied for and once granted access had to be set up.  The function takes each location and returns the accompanying latitude and longitude for each (Sadler, 2019). Note that some twitter users had more than one location as their hometown on their profiles and some twitter users recorded where they lived as things like “on the moon” or “in paradise”. The geo_mutate() function will only generate coordinates for the addresses it understands, all other anomalies were cut from the data frame.   
-Once this was completed the two data frames had to be merged into a staked format for use in Tableau. Data frames were distinguishable  by event name of either TED or TWITTER for mapping. The first visualisation created can be seen in Fig 3.1 & Fig 3.2 and it depicts the pattern of GIS data for ted events compared to GIS data for the twitter users.  
+Once this was completed the two data frames had to be merged into a staked format for use in Tableau. Data frames were distinguishable  by event name of either TED or TWITTER for mapping. The first visualisation created can be seen in Fig 3.1 & Fig 3.2 and it depicts the pattern of GIS data for ted events compared to GIS data for the twitter users.   
+
+![11](https://user-images.githubusercontent.com/50813004/84148650-34a00380-aa57-11ea-8358-7b2287dece3a.png)
 		Fig 3.1: Tableau Map of Plotted Ted location & Plotted Twitter Locations 
 
 There does seem to be some relationship between sharing information on twitter and having a Ted talk event in the area. There are some parts of the map that have no ted event and therefore have no corresponding tweets in the area.
- 
+
+![12](https://user-images.githubusercontent.com/50813004/84148652-34a00380-aa57-11ea-8529-c76e6be95eb8.png)
 	Fig 3.1: Zoomed Tableau Map of Plotted Ted location & Plotted Twitter Locations 
-There does seem to be an apparent relationship between where a Ted event is held and the twitter users within the vicinity sharing information about the event. For example, there was no ted talk in Greenland during our timeframe and no twitter data was recorded for that area(Fig 3.1). Let’s have a look at the data superimposed on top of one another (See Fig 3.3)
+There does seem to be an apparent relationship between where a Ted event is held and the twitter users within the vicinity sharing information about the event. For example, there was no ted talk in Greenland during our timeframe and no twitter data was recorded for that area(Fig 3.1). Let’s have a look at the data superimposed on top of one another (See Fig 3.3) 
+
+![13](https://user-images.githubusercontent.com/50813004/84148653-35389a00-aa57-11ea-85a5-705dae86a63b.png)
 	Fig 3.3: Superimposed Tableau Map of Twitter and Ted GIS Data 
-Fig 3.4 shows a look at the GIS data collected for both twitter users and ted talks conferences in the United States of America. The visualisation does suggest that a Ted event in a certain area will cause twitter users to share information about the conferences through their  twitter account. However further research is needed as  8,635 tweets (after NA’s are removed) is not wholly sufficient to determine how strong a relationship there is between a Ted event and the effect it has on social media sharing and communication in that area. 
+Fig 3.4 shows a look at the GIS data collected for both twitter users and ted talks conferences in the United States of America. The visualisation does suggest that a Ted event in a certain area will cause twitter users to share information about the conferences through their  twitter account. However further research is needed as  8,635 tweets (after NA’s are removed) is not wholly sufficient to determine how strong a relationship there is between a Ted event and the effect it has on social media sharing and communication in that area.  
+
+![14](https://user-images.githubusercontent.com/50813004/84148655-35389a00-aa57-11ea-95c2-13ae490f0f6f.png)
 Fig 3.5: USA Tableau Map of Twitter and Ted location data. 
 
 ## Conclusion 
