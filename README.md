@@ -1,6 +1,8 @@
 
 # A Data Driven Guide to the Perfect Ted Talk  
 
+![1](https://user-images.githubusercontent.com/50813004/84148006-3c12dd00-aa56-11ea-875f-074903357c17.png)
+
 
 ## Introduction 
 Ted Talks is a non-profit organisation, founded in 1984 by Richard Saul Wurman and Harry Marks as a platform for spreading ideas through short powerful talks(Ted.com, 2019). Ted Talks conferences bring together world renowned experts from various walks of life and study and gives them a platform to distil years of their work and research into talks(Ted.com, 2019). Ted Talks operates under the slogan ‘Ideas Worth Spreading’ and that is exactly what they do. All the talks from the conferences are streamed across a wide variety of social networks including the Ted Talks website(Ted.com, 2019).  
