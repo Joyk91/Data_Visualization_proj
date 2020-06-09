@@ -8,7 +8,9 @@
 Ted Talks is a non-profit organisation, founded in 1984 by Richard Saul Wurman and Harry Marks as a platform for spreading ideas through short powerful talks(Ted.com, 2019). Ted Talks conferences bring together world renowned experts from various walks of life and study and gives them a platform to distil years of their work and research into talks(Ted.com, 2019). Ted Talks operates under the slogan ‘Ideas Worth Spreading’ and that is exactly what they do. All the talks from the conferences are streamed across a wide variety of social networks including the Ted Talks website(Ted.com, 2019).  
 
 ### Data 
-The dataset used for this project was compiled of 2,550 rows of data and 17 variables on Ted Talks from  1984 up until the 21st of September 2017. This data was originally scrapped form the ted talks main website (TED.com) and includes information about all audio- video talks. The dataset is available for CSV download from the Kaggle website. A snapshot of the data can be seen below: 
+The dataset used for this project was compiled of 2,550 rows of data and 17 variables on Ted Talks from  1984 up until the 21st of September 2017. This data was originally scrapped form the ted talks main website (TED.com) and includes information about all audio- video talks. The dataset is available for CSV download from the Kaggle website. A snapshot of the data can be seen below:  
+
+![2](https://user-images.githubusercontent.com/50813004/84148165-79776a80-aa56-11ea-9820-781bd10e4a14.png)
  	Table 1: Snapshot of Dataset
 
 ## Analysing the data  
@@ -22,7 +24,10 @@ These questions will be answered using the dataset chosen and also web scraping 
 ### 1.	What to talk about? 
 This is the first question will give an underlying foundation of the type of talks that are popular, the top occupations among the speakers and also the top themes of these talks.  
 The first Visualisation (Fig 1.1) was generated in Rstudio and is a treemap of the top five talks in each event based on the highest number of views.  As we can see some of the top talks are by some very well know people such as Bill Gates: Innovating to zero (TED2010),  Elon Musk: The future we're building and boring (TED2017)etc. and also, we have some talks that have quite attention grabbing headings such as Ken Robinson: Do schools kill creativity (TED2006) and 
-Chris Hadfield: What I learned from going blind (TED2014).
+Chris Hadfield: What I learned from going blind (TED2014). 
+
+![3](https://user-images.githubusercontent.com/50813004/84148168-79776a80-aa56-11ea-8629-d3bea06b1f3a.png)
+		
 		Fig 1.1: Treemap Top 5 talks in each TED event.
 Fig 1.2 shows  the most popular professions among the speakers with Writer, Artist, Designer, Journalist and Entrepreneur being the top five. These occupations represent the type of professions Ted Talks attracts to thrill audiences and spread ideas.  It is quite surprising to see writer at the top of the list considering the foundation was primarily built on bringing together people from Technology, Design and Science(Ted.com, 2019). It was expected to see professions such as scientist or engineers and therefore we can conclude that the Ted talks conferences have now diversified into virtually all fields of study.  
 	 
@@ -31,29 +36,18 @@ Fig 1.2 shows  the most popular professions among the speakers with Writer, Arti
 
 
 
-
-	
+![4](https://user-images.githubusercontent.com/50813004/84148170-7a100100-aa56-11ea-8d2c-a388ba497a32.png)
 	
 	Fig1.2: Barplot of Top Occupations
-Next, we will explore the top type of themes among the talks. This was a little trickier to do. For each talk and depending on the contents of the talk a tag is given as a descriptor of the type on content available in that talk. Each talk contains two or more tags and they are stored in a list for each observation. A function was built to unlist and split the tags, so they could be counted and plotted. This was achieved using the unset_tokens() functions from the “tidytext” package and regular expression string manipulation. Fig 1.3 depicts the resulting plot. The counts for each tag were super imposed onto the graph, and now we see what we expected from the professions plot (Fig1.2). We see that the most popular topic is technology,  as well as our other two original factions Science and Design making the list. 
+Next, we will explore the top type of themes among the talks. This was a little trickier to do. For each talk and depending on the contents of the talk a tag is given as a descriptor of the type on content available in that talk. Each talk contains two or more tags and they are stored in a list for each observation. A function was built to unlist and split the tags, so they could be counted and plotted. This was achieved using the unset_tokens() functions from the “tidytext” package and regular expression string manipulation. Fig 1.3 depicts the resulting plot. The counts for each tag were super imposed onto the graph, and now we see what we expected from the professions plot (Fig1.2). We see that the most popular topic is technology,  as well as our other two original factions Science and Design making the list.  
 
+![5](https://user-images.githubusercontent.com/50813004/84148171-7a100100-aa56-11ea-8eb6-3f5e673669a7.png)
 	Fig 1.3: Top Themes of Ted Talks   
 
 ### 2.	When to talk about it? 
 The next question on our mind when exploring a guide to the perfect ted talk is when to talk. What are the best days of the week for a talk to go live, what are the most popular months to speak and how long should a talk be. 
 Fig 2.1 shows the mean duration of ted talks and it seems from the figure that the average ted talk is less that 1000 seconds long which is approximately 16 minutes. This is consistent with what we know of Ted Talks in that they are short powerful talks (Ted.com, 2019),
  
-
-
-
-
-
-
-
-
-
-
-
 
 	Fig 2.1: Average Length of Ted Talks. 
 Fig 2.2 below  shows the most popular day of the week to post a ted talk video. As we can see Tuesday has generated the most views, followed closely by Friday, Wednesday, Thursday and Monday. However, the difference between each day is small and therefore cannot determine whether this is statistically significant. It is also good to note that again this information has been scrapped from the ted talks main website. The videos are posted on their website during the working week. Therefore, we can conclude that the company has a five day working week and therefore publish the content during the work week.
